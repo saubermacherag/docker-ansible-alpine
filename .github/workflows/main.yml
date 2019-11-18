@@ -1,0 +1,22 @@
+name: Build Alpine Ansible Docker Image
+
+on: [push]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Build and Publish Docker image
+        uses: machine-learning-apps/gpr-docker-publish@v1.3
+        with:
+          USERNAME: x-access-token
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          IMAGE_NAME: 'ansible-alpine'
+          DOCKERFILE_PATH: 'Dockerfile'
+          BUILD_CONTEXT: './'
+
