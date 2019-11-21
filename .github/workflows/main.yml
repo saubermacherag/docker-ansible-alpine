@@ -12,7 +12,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: Build and Publish Docker image
-        uses: machine-learning-apps/gpr-docker-publish@v1.3
+        uses: saubermacherag/gpr-docker-publish@master
         with:
           USERNAME: x-access-token
           PASSWORD: ${{ secrets.GITHUB_TOKEN }}
