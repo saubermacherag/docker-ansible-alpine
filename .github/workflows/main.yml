@@ -19,4 +19,5 @@ jobs:
           IMAGE_NAME: 'ansible-alpine'
           DOCKERFILE_PATH: 'Dockerfile'
           BUILD_CONTEXT: './'
+          CACHE: true
 
