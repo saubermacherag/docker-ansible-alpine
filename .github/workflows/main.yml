@@ -14,10 +14,10 @@ jobs:
       - name: Build and Publish Docker image
         uses: saubermacherag/gpr-docker-publish@master
         with:
-          USERNAME: x-access-token
-          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-          IMAGE_NAME: 'ansible-alpine'
+          USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKERHUB_PAT }}
           DOCKERFILE_PATH: 'Dockerfile'
           BUILD_CONTEXT: './'
           CACHE: true
+          DOCKERHUB_REPOSITORY: 'pinkrobin/docker-ansible-alpine'
 
