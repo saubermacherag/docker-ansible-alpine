@@ -1,34 +1,30 @@
-FROM alpine:3.10.3
+FROM python:2.7.17-alpine3.10
 
 MAINTAINER Patrick Pötz <devops@wastebox.biz>
-
-# most of it is stolen from: pad92/docker-ansible-alpine
 
 ENV ANSIBLE_VERSION=2.8.5
 
 RUN echo "=== INSTALLING SYS DEPS" && \
     apk update && \
     apk add --no-cache \
-        ca-certificates \
         git \
         openssh-client \
         openssl \
-        python3 \
         rsync \
         sshpass \
+        which \
         gettext && \
     apk --update add --virtual \
         builddeps \
-        python3-dev \
         libffi-dev \
         openssl-dev \
         build-base && \
     \
     echo "=== INSTALLING PIP DEPS" && \
-    pip3 install --upgrade \
+    pip install --upgrade \
         pip \
         cffi && \
-    pip3 install \
+    pip install \
         ansible==$ANSIBLE_VERSION \
         botocore \
         boto \
@@ -47,3 +43,6 @@ Host *\n\
     StrictHostKeyChecking no\n\
     UserKnownHostsFile=/dev/null\n\
 """ >> /etc/ssh/ssh_config
+
+RUN which python
+RUN ansible --version
