@@ -1,8 +1,8 @@
-FROM python:2.7.17-alpine3.10
+FROM python:2.7.18-alpine3.11
 
 MAINTAINER Patrick Pötz <devops@wastebox.biz>
 
-ENV ANSIBLE_VERSION=2.8.5
+ENV ANSIBLE_VERSION=2.9.5
 
 RUN echo "=== INSTALLING SYS DEPS" && \
     apk update && \
