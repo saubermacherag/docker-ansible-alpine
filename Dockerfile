@@ -2,7 +2,7 @@ FROM python:2.7.18-alpine3.11
 
 MAINTAINER Patrick Pötz <devops@wastebox.biz>
 
-ENV ANSIBLE_VERSION=2.9.5
+ENV ANSIBLE_VERSION=2.9.11
 
 RUN echo "=== INSTALLING SYS DEPS" && \
     apk update && \
